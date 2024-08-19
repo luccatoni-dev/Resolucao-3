@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Verificação de Idade</title>
+    <style>
+        body {
+            font-family: 'Roboto', sans-serif;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+            background-color: #f4f4f4;
+        }
+        div {
+            background-color: #fff;
+            border-radius: 8px;
+            padding: 20px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.24);
+            text-align: center;
+            max-width: 400px;
+            width: 90%;
+        }
+        button {
+            padding: 10px 20px;
+            font-size: 1em;
+            color: #fff;
+            background-color: #009b0dcb;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+        button:hover {
+            background-color: #009b0d5b;
+            padding: 15px;
+        }
+        p {
+            font-size: 1.1em;
+            color: #333;
+        }
+    </style>
+</head>
+<body>
+    <div>
+        <h1>Verificação de Idade</h1>
+        <p id="mensagem"></p>
+        <button onclick="verificarIdade()">Verificar Idade</button>
+    </div>
+
+    <script>
+        function verificarIdade() {
+            const idade = prompt("Por favor, informe sua idade:");
+
+            if (idade !== null && !isNaN(idade)) {
+                const idadeNumero = parseInt(idade, 10);
+
+                let mensagem = '';
+                if (idadeNumero >= 18) {
+                    mensagem = "Você é maior de idade.";
+                } else {
+                    mensagem = "Você é menor de idade.";
+                }
+
+                document.getElementById("mensagem").textContent = mensagem;
+            } else {
+                document.getElementById("mensagem").textContent = "Por favor, informe uma idade válida.";
+            }
+        }
+    </script>
+</body>
+</html>
